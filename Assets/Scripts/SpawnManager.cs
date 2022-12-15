@@ -5,19 +5,23 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject Car;
-    private Vector3 spawnPos = new Vector3(0, 13, 120);
+    private Vector3 spawnPos = new Vector3(-8, 13, 200);
     private float startDelay = 2;
     private float repeatRate = 4;
     private PlayerController playerControllerScript;
 
     void Start()
     {
-        
+        InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void SpawnObstacle ()
+    {
+        Instantiate(Car, spawnPos, Car.transform.rotation);
     }
 }
